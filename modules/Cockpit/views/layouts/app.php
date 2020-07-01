@@ -99,6 +99,7 @@
 
                                 <ul class="uk-grid uk-grid-small uk-grid-width-1-2 uk-grid-width-medium-1-4 uk-text-center">
 
+                                    @hasaccess?('cockpit', 'dashboard')
                                     <li class="uk-grid-margin">
                                         <a class="uk-display-block uk-panel-card-hover uk-panel-box uk-panel-space {{ ($app['route'] == '/cockpit/dashboard') ? 'uk-bg-primary uk-contrast':'' }}" href="@route('/cockpit/dashboard')">
                                             <div class="uk-svg-adjust">
@@ -107,7 +108,9 @@
                                             <div class="uk-text-truncate uk-text-small uk-margin-small-top">@lang('Dashboard')</div>
                                         </a>
                                     </li>
+                                    @end
 
+                                    @hasaccess?('cockpit', 'assets')
                                     <li class="uk-grid-margin">
                                         <a class="uk-display-block uk-panel-card-hover uk-panel-box uk-panel-space {{ (strpos($app['route'],'/assetsmanager')===0) ? 'uk-bg-primary uk-contrast':'' }}" href="@route('/assetsmanager')">
                                             <div class="uk-svg-adjust">
@@ -116,6 +119,7 @@
                                             <div class="uk-text-truncate uk-text-small uk-margin-small-top">@lang('Assets')</div>
                                         </a>
                                     </li>
+                                    @end
 
                                     @hasaccess?('cockpit', 'finder')
                                     <li class="uk-grid-margin">
